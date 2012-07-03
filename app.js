@@ -1,7 +1,7 @@
 var app     = require("express").createServer();
 var express = require("express");
 var fs      = require("fs");
-var dbQueries = require('./database.js');
+var dbQueries = require('./database/queries.js');
 var config  = JSON.parse(fs.readFileSync("config.json"));
 var mysql   = require("mysql").createClient({
 	host: config.database["host"],
@@ -21,7 +21,6 @@ var mike = new User.User({
 	engage_config: 1
 	});
 
-mike.displayInfo();
 //mike.save();
 var args = {
 	first_name:"mike",

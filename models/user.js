@@ -1,7 +1,6 @@
 var Backbone = require('backbone');
 var fs = require('fs');
 var config  = JSON.parse(fs.readFileSync("config.json"));
-var dbMethods = require('../database.js');
 var mysql   = require("mysql").createClient({
 	host: config.database["host"],
 	user: config.database["user"],
