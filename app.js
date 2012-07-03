@@ -9,22 +9,27 @@ var mysql   = require("mysql").createClient({
 	password: config.database["password"]
 	});
 
-var User = require('./models/user.js');
+var User = require('./database/create-tables.js').User;
 
-var mike = new User.User({
-	first_name:'Mike',
-	last_name:'Klemarewski',
+User.create({
+	uuid:'A7S7F8GA7SD98A7SDF8ASD7G',
+	firstName:'Mike',
+	lastName:'Klemarewski',
 	type:1,
-	user_id:'mak10',
-	presenter_config: 1,
-	accent_config: 1,
-	engage_config: 1
+	userID:'mak10',
+	email:'mak10@sfu.ca',
+	accentConfig: 1,
+	engageConfig: 1,
+	rqraConfig: 1
+	}).success(function(user){
+		user.save().success(function(){
+			console.log("Saved user");
+		});
 	});
 
-//mike.save();
 var args = {
 	first_name:"mike",
 	last_name:"klemarewski"
 }
 
-dbQueries.selectUser(args);
+//dbQueries.selectUser(args);
