@@ -1,4 +1,5 @@
 var User = require('../models/user.js');
+var Course = require('../models/course.js');
 var fs = require('fs');
 var config  = JSON.parse(fs.readFileSync("config.json"));
 var Sequelize = require('sequelize');
@@ -13,3 +14,4 @@ var db = new Sequelize(
 );
 
 User.User.sync();
+Course.Course.sync();
