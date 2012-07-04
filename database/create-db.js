@@ -6,6 +6,20 @@ var mysql   = require("mysql").createClient({
 	password: config.database["password"],
 	});
 
+var User = require('../models/user.js').User;
+var Course = require('../models/course.js').Course;
+var Sequelize = require('sequelize');
+var db = new Sequelize(
+	config.database["db-name"],	
+	config.database["user"],
+	config.database["password"],
+	{
+		host: config.database["host"],
+		define: {charset:'utf8'}
+	}
+);
+
+
 var createDB = function(){
 	mysql.query('CREATE DATABASE IF NOT EXISTS ' + config.database["db-name"] + ' CHARACTER SET \'utf8\''
 		, function(err){
@@ -14,8 +28,10 @@ var createDB = function(){
 			return;
 		}
 		else{
-			console.log("Database created!");
+			console.log("Database created! Creating tables...");
 			mysql.end();
+			User.sync();
+			Course.sync();
 		}
 	});
 }
