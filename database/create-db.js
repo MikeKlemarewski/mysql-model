@@ -7,7 +7,8 @@ var mysql   = require("mysql").createClient({
 	});
 
 var createDB = function(){
-	mysql.query('CREATE DATABASE IF NOT EXISTS ' + config.database["db-name"], function(err){
+	mysql.query('CREATE DATABASE IF NOT EXISTS ' + config.database["db-name"] + ' CHARACTER SET \'utf8\''
+		, function(err){
 		if(err){
 			console.log("Unable to create db " + err);
 			return;

@@ -17,9 +17,24 @@ var User = exports.User = db.define('User', {
 	lastName: {type: Sequelize.STRING, allowNull: false},
 	userID: {type: Sequelize.STRING, unique: true},
 	email: {type: Sequelize.STRING, unique: true, validate:{isEmail: true}},
-	engageConfig: Sequelize.INTEGER,
-	accentConfig: Sequelize.INTEGER,
-	rqraConfig: Sequelize.INTEGER
+	engageConfig: {type: Sequelize.INTEGER, unique: true},
+	accentConfig: {type: Sequelize.INTEGER, unique: true},
+	rqraConfig: {type: Sequelize.INTEGER, unique: true}
 
 });
 
+exports.selectUser = function(args, callback){
+	User.find({where: args}).success(function(user){
+		callback(user);
+	}).error(function(error){
+		console.log("Couldn't find user " + error);
+	});
+}
+
+exports.selectUsers = function(args, callback){
+	User.findAll({where: args}).success(function(users){
+		callback(users);
+	}).error(function(error){
+		console.log("Failed to select users " + error);
+	});
+}

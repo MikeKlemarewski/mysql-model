@@ -8,6 +8,7 @@ var db = new Sequelize(
 	config.database["password"],
 	{
 		host: config.database["host"],
+		define: {charset:'utf8'}
 	}
 );
 
