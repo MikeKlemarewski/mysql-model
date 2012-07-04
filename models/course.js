@@ -12,10 +12,10 @@ var db = new Sequelize(
 
 var Course = exports.Course = db.define('Course', {
 	uuid: {type: Sequelize.STRING, primaryKey: true},
-	title: Sequelize.STRING,
-	section: Sequelize.STRING,
-	subject: Sequelize.STRING,
-	number: Sequelize.INTEGER
+	title: {type: Sequelize.STRING, allowNull: false},
+	section: {type: Sequelize.STRING, allowNull: false},
+	subject: {type: Sequelize.STRING, allowNull: false},
+	number: {type: Sequelize.INTEGER, allowNull: false}
 });
 
 exports.selectCourse = function(args, callback){
@@ -27,7 +27,7 @@ exports.selectCourse = function(args, callback){
 }
 
 exports.selectCourses = function(args, callback){
-	Course.find({where: args}).success(function(course){
+	Course.findAll({where: args}).success(function(course){
 		callback(course);
 	}).error(function(error){
 		console.log("Couldn't select course " + error);

@@ -1,6 +1,6 @@
 {
 	"users": [
-		{	
+		{
 			"uuid":"A7S7F8GA7SD98A7SDF8ASD7G",
 			"firstName":"Mike",
 			"lastName":"Klemarewski",
@@ -9,7 +9,8 @@
 			"email":"mak10@sfu.ca",
 			"accentConfig": 1,
 			"engageConfig":1,
-			"rqraConfig": 1
+			"rqraConfig": 1,
+			"courses":"{\"courses\":[]}"
 		},
 		{
 			"uuid":"A7S7FSD78FA98A7SDF8ASD7G",
@@ -20,7 +21,8 @@
 			"email":"jh99@sfu.ca",
 			"accentConfig": 2,
 			"engageConfig":2,
-			"rqraConfig": 2
+			"rqraConfig": 2,
+			"courses":"{\"courses\":[\"A8G7S6H7ASDFG9\"]}"
 		},
 		{	
 			"uuid":"A7S7F8GA7SD9ASD8DF89AG",
@@ -31,7 +33,8 @@
 			"email":"yk38@sfu.ca",
 			"accentConfig": 3,
 			"engageConfig":3,
-			"rqraConfig": 4
+			"rqraConfig": 4,
+			"courses":"{\"courses\":[\"A8G7S6H7ASDFG9\", \"A827346H7ASDFG9\"]}"
 		}
 	],
 	"courses":[

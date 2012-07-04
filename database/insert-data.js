@@ -14,17 +14,18 @@ var db = new Sequelize(
 	}
 );
 
-for(index in data.users){
-	var user = User.create(data.users[index]).success(function(user){
-		user.save().error(function(error){
-			console.log("Failed to insert user " + error);
-		})
-	})
-}
 for(index in data.courses){
 	var course = Course.create(data.courses[index]).success(function(course){
 		course.save().error(function(error){
 			console.log("Failed to insert course " + error);
 		})
 	})
+}
+for(index in data.users){
+	var user = User.build(data.users[index]);
+
+	user.save().error(function(error){
+		console.log("Failed to insert user " + error);
+	});
+
 }

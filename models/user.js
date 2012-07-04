@@ -1,6 +1,7 @@
 var fs      = require("fs")
 var config  = JSON.parse(fs.readFileSync("config.json"));
 var Sequelize = require('sequelize');
+var Course = require('./course.js').Course;
 var db = new Sequelize(
 	config.database["db-name"],	
 	config.database["user"],
@@ -19,8 +20,8 @@ var User = exports.User = db.define('User', {
 	email: {type: Sequelize.STRING, unique: true, validate:{isEmail: true}},
 	engageConfig: {type: Sequelize.INTEGER, unique: true},
 	accentConfig: {type: Sequelize.INTEGER, unique: true},
-	rqraConfig: {type: Sequelize.INTEGER, unique: true}
-
+	rqraConfig: {type: Sequelize.INTEGER, unique: true},
+	courses: {type: Sequelize.TEXT}
 });
 
 exports.selectUser = function(args, callback){
