@@ -13,6 +13,30 @@
 			"courses":"{\"courses\":[]}"
 		},
 		{
+			"uuid":"BSDF787D98A7SDF8ASD7G",
+			"firstName":"Ted",
+			"lastName":"Kirkpatrick",
+			"type":0,
+			"userID":"ted",
+			"email":"ted@sfu.ca",
+			"accentConfig": 6,
+			"engageConfig":6,
+			"rqraConfig": 6,
+			"courses":"{\"courses\":[]}"
+		},
+		{
+			"uuid":"BSDF787D98ASDF099D7G",
+			"firstName":"Bernie",
+			"lastName":"Maroney",
+			"type":0,
+			"userID":"bernie",
+			"email":"bernie@sfu.ca",
+			"accentConfig": 7,
+			"engageConfig":7,
+			"rqraConfig": 7,
+			"courses":"{\"courses\":[]}"
+		},
+		{
 			"uuid":"A7S7FSD78FA98A7SDF8ASD7G",
 			"firstName":"Jihoon",
 			"lastName":"Klemarewski",
@@ -43,14 +67,16 @@
 			"title":"Algorithms",
 			"section":"D100",
 			"subject":"CMPT",
-			"number":307
+			"number":307,
+			"instructor":"BSDF787D98A7SDF8ASD7G"
 		},
 		{
 			"uuid":"A827346H7ASDFG9",
 			"title":"Networking",
 			"section":"D200",
 			"subject":"CMPT",
-			"number":371
+			"number":371,
+			"instructor":"BSDF787D98ASDF099D7G"
 		}
 	]
 }

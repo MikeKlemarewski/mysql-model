@@ -15,7 +15,8 @@ var Course = exports.Course = db.define('Course', {
 	title: {type: Sequelize.STRING, allowNull: false},
 	section: {type: Sequelize.STRING, allowNull: false},
 	subject: {type: Sequelize.STRING, allowNull: false},
-	number: {type: Sequelize.INTEGER, allowNull: false}
+	number: {type: Sequelize.INTEGER, allowNull: false},
+	instructor: {type: Sequelize.STRING, allowNull: false}
 });
 
 exports.selectCourse = function(args, callback){
