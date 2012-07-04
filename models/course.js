@@ -10,6 +10,7 @@ var db = new Sequelize(
 	}
 );
 
+
 var Course = exports.Course = db.define('Course', {
 	uuid: {type: Sequelize.STRING, primaryKey: true},
 	title: {type: Sequelize.STRING, allowNull: false},
@@ -33,4 +34,13 @@ exports.selectCourses = function(args, callback){
 	}).error(function(error){
 		console.log("Couldn't select course " + error);
 	});
+}
+
+exports.getInstructor = function(args, callback){
+	Course.find({where: args}).success(function(course){
+		var CourseUser = require('./user.js').User;
+		CourseUser.find({where: {uuid: course.instructor}}).success(function(courseInstructor){
+			callback(courseInstructor);
+		})
+	})
 }

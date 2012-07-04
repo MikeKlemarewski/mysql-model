@@ -1,7 +1,7 @@
 var fs      = require("fs")
 var config  = JSON.parse(fs.readFileSync("config.json"));
 var Sequelize = require('sequelize');
-var Course = require('./course.js').Course;
+var UserCourse = require('./course.js').Course;
 var db = new Sequelize(
 	config.mysqlDatabase["db-name"],	
 	config.mysqlDatabase["user"],
@@ -44,7 +44,7 @@ exports.getUserCourses = function(args, callback){
 	User.find({where: args}).success(function(user){
 		var courseUUIDs = JSON.parse(user.courses).courses;
 		if(courseUUIDs){
-			Course.findAll({where: {uuid: courseUUIDs}}).success(function(userCourses){
+			UserCourse.findAll({where: {uuid: courseUUIDs}}).success(function(userCourses){
 				callback(userCourses);
 			}).error(function(error){
 				console.log("Couldn't find users courses " + error);

@@ -10,13 +10,12 @@ var userArgs = {
 }
 
 var courseArgs = {
-	subject:"CMPT"
+	subject:"CMPT",
+	number: 371
 }
 
 var printResults = function(results){
-	for(index in results){
-		console.log("FOUND HIM! " + JSON.stringify(results[index]) + "\n\n\n");
-	}
+	console.log("FOUND HIM! " + JSON.stringify(results) + "\n\n\n");
 }
 
 var showCourses = function(courses){
@@ -25,6 +24,5 @@ var showCourses = function(courses){
 	}
 }
 
-User.User.hasMany(Course.Course);
-User.getUserCourses(userArgs, showCourses);
-//Course.selectCourses(courseArgs, printResults);
+//User.getUserCourses(userArgs, showCourses);
+Course.getInstructor(courseArgs, printResults);
