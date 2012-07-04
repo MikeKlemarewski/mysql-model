@@ -6,8 +6,7 @@ var Course    = require('./models/course.js');
 var config  = JSON.parse(fs.readFileSync("config.json"));
 
 var userArgs = {
-	firstName:"jihoon",
-	lastName:"klemarewski"
+	firstName:"yukai"
 }
 
 var courseArgs = {
@@ -20,12 +19,12 @@ var printResults = function(results){
 	}
 }
 
-var showCourses = function(user){
-	user.getCourses().success(function(associatedCourses){
-		console.log(associatedCourses);
-	})
+var showCourses = function(courses){
+	for(index in courses){
+		console.log("Course: " + JSON.stringify(courses[index]) + "\n");
+	}
 }
 
 User.User.hasMany(Course.Course);
-User.selectUser(userArgs, showCourses);
+User.getUserCourses(userArgs, showCourses);
 //Course.selectCourses(courseArgs, printResults);

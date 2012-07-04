@@ -39,3 +39,18 @@ exports.selectUsers = function(args, callback){
 		console.log("Failed to select users " + error);
 	});
 }
+
+exports.getUserCourses = function(args, callback){
+	User.find({where: args}).success(function(user){
+		var courseUUIDs = JSON.parse(user.courses).courses;
+		if(courseUUIDs){
+			Course.findAll({where: {uuid: courseUUIDs}}).success(function(userCourses){
+				callback(userCourses);
+			}).error(function(error){
+				console.log("Couldn't find users courses " + error);
+			})
+		}
+	}).error(function(error){
+		console.log("Can't find user " + error);
+	})
+}
