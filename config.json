@@ -3,6 +3,12 @@
 		"host":"127.0.0.1",
 		"user":"root",
 		"password":"password",
+		"db-name":"mysqlUserModels"
+	},
+	"mysqlTestDatabase":{
+		"host":"127.0.0.1",
+		"user":"root",
+		"password":"password",
 		"db-name":"userModelTest"
 	}
 }
