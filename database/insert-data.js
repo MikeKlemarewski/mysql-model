@@ -2,14 +2,14 @@ var User = require('../models/user.js').User;
 var Course = require('../models/course.js').Course;
 var fs = require('fs');
 var config  = JSON.parse(fs.readFileSync("config.json"));
-var data  = JSON.parse(fs.readFileSync("./database/test-data.json"));
+var data  = JSON.parse(fs.readFileSync("./mysqlDatabase/test-data.json"));
 var Sequelize = require('sequelize');
 var db = new Sequelize(
-	config.database["db-name"],	
-	config.database["user"],
-	config.database["password"],
+	config.mysqlDatabase["db-name"],	
+	config.mysqlDatabase["user"],
+	config.mysqlDatabase["password"],
 	{
-		host: config.database["host"],
+		host: config.mysqlDatabase["host"],
 		define: {charset:'utf8'}
 	}
 );

@@ -2,11 +2,11 @@ var fs      = require("fs")
 var config  = JSON.parse(fs.readFileSync("config.json"));
 var Sequelize = require('sequelize');
 var db = new Sequelize(
-	config.database["db-name"],	
-	config.database["user"],
-	config.database["password"],
+	config.mysqlDatabase["db-name"],	
+	config.mysqlDatabase["user"],
+	config.mysqlDatabase["password"],
 	{
-		host: config.database["host"],
+		host: config.mysqlDatabase["host"],
 	}
 );
 
