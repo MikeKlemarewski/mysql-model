@@ -10,7 +10,7 @@ var User = require('../models/user.js').User;
 var Course = require('../models/course.js').Course;
 
 
-exports.createDB = function(dbName){
+exports.createDB = function(dbName, callback){
 	mysql.query('CREATE DATABASE IF NOT EXISTS ' + dbName + ' CHARACTER SET \'utf8\''
 		, function(err){
 		if(err){
@@ -21,18 +21,26 @@ exports.createDB = function(dbName){
 		else{
 			console.log("Database created! Creating tables...\n");
 			mysql.end();
-			User.sync();
-			Course.sync();
+			User.sync().success(function(){
+				Course.sync().success(function(){
+					if(callback){
+						callback();
+					}
+				});	
+			});
 		}
 	});
 }
 
-exports.dropDB = function(dbName){
+exports.dropDB = function(dbName, callback){
 	mysql.query('DROP DATABASE ' + dbName, function(error){
 		if(error){
 			console.log("Couldn't delete database " + error);
 		}
 		else{
+			if(callback){
+				callback();
+			}
 			console.log("Database " + dbName + " deleted");
 		}
 		mysql.end();

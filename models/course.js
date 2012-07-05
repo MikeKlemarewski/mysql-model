@@ -7,6 +7,7 @@ var db = new Sequelize(
 	config.mysqlDatabase["password"],
 	{
 		host: config.mysqlDatabase["host"],
+		logging: false
 	}
 );
 
@@ -17,7 +18,8 @@ var Course = exports.Course = db.define('Course', {
 	section: {type: Sequelize.STRING, allowNull: false},
 	subject: {type: Sequelize.STRING, allowNull: false},
 	number: {type: Sequelize.INTEGER, allowNull: false},
-	instructor: {type: Sequelize.STRING, allowNull: false}
+	instructor: {type: Sequelize.STRING, allowNull: false},
+	meetingtimes: {type: Sequelize.TEXT}
 });
 
 exports.selectCourse = function(args, callback){

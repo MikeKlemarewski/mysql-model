@@ -6,7 +6,7 @@ var Course    = require('./models/course.js');
 var config  = JSON.parse(fs.readFileSync("config.json"));
 
 var userArgs = {
-	firstName:"yukai"
+	lastName:"klemarewski"
 }
 
 var courseArgs = {
@@ -25,4 +25,5 @@ var showCourses = function(courses){
 }
 
 //User.getUserCourses(userArgs, showCourses);
-Course.getInstructor(courseArgs, printResults);
+User.selectUsers(userArgs, showCourses);
+//Course.getInstructor(courseArgs, printResults);
